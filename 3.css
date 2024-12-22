@@ -1,0 +1,8 @@
+/* 产品列表网格布局 */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 如果需要，可以进一步自定义.product-item的样式 */
