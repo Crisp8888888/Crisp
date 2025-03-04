@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="result"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    let html = "";
+    params.forEach((value, key) => {
+      html += `${key}: ${value}<br>`;
+    });
+    document.getElementById("result").innerHTML = html || "No data submitted.";
+  </script>
+</body>
+</html>

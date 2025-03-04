@@ -1,38 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Button Click Counter - Centered</title>
-        <style>
-            body {
-                /* 设置 body 为 Grid 容器 */
-                display: grid;
-                /* 让子元素在水平和垂直方向上都居中 */
-                place-items: center;
-                /* 设置 body 的高度为视口高度，确保垂直居中生效 */
-                height: 100vh;
-                margin: 0;
-            }
-        </style>
-    </head>
-    
-    <body>
-        <button id="clickButton">Click Me</button>
-        <p id="clickCountDisplay">Number of clicks: 0</p>
-        <script>
-            const clickButton = document.getElementById('clickButton');
-            const clickCountDisplay = document.getElementById('clickCountDisplay');
-            let clickCount = 0;
-    
-            clickButton.addEventListener('click', function () {
-                clickCount++;
-                clickCountDisplay.textContent = `Number of clicks: ${clickCount}`;
-            });
-        </script>
-    </body>
-    
+<html>
+<body>
+  <button onclick="setCookie()">Accept & Set Cookie</button>
+  <button onclick="readCookie()">Read Cookie</button>
+  <button onclick="deleteCookie()">Destroy Cookie</button>
+  <script>
+    function setCookie() {
+      document.cookie = "user=Accepted; path=/";
+      alert("Cookie set!");
+    }
+    function readCookie() {
+      alert(document.cookie || "No cookies found.");
+    }
+    function deleteCookie() {
+      document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      alert("Cookie deleted!");
+    }
+  </script>
+</body>
 </html>

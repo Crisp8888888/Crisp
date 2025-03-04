@@ -1,29 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personalized Greeting</title>
-</head>
-
+<html>
 <body>
-    <p id="greeting"></p>
-    <script>
-        // Ask the user for their name
-        const userName = prompt("Please enter your name:");
-
-        // Get the HTML element by its ID
-        const greetingElement = document.getElementById('greeting');
-
-        // Check if the user entered a name
-        if (userName) {
-            // Set the text content of the element to the personalized greeting
-            greetingElement.textContent = `Hello, ${userName}! Nice to meet you.`;
-        } else {
-            greetingElement.textContent = "You didn't enter a name. Please refresh the page and try again.";
-        }
-    </script>
+  <p id="cookieValue"></p>
+  <script>
+    const cookies = document.cookie.split(';');
+    let name = "Cookie not found";
+    cookies.forEach(cookie => {
+      const [key, value] = cookie.trim().split('=');
+      if (key === "Crisp") name = value;
+    });
+    document.getElementById("cookieValue").textContent = `Crisp: ${name}`;
+  </script>
 </body>
-
 </html>
