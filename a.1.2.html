@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <p id="cookieValue"></p>
+  <script>
+    const cookies = document.cookie.split(';');
+    let name = "Cookie not found";
+    cookies.forEach(cookie => {
+      const [key, value] = cookie.trim().split('=');
+      if (key === "Crisp") name = value;
+    });
+    document.getElementById("cookieValue").textContent = `Crisp: ${name}`;
+  </script>
+</body>
+</html>
