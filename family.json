@@ -1,9 +1,9 @@
 [
-  { "name": "Crisp", "relation": "自己", "age": 28, "occupation": "工程师" },
-  { "name": "李大明", "relation": "父亲", "age": 58, "occupation": "教师" },
-  { "name": "王丽华", "relation": "母亲", "age": 55, "occupation": "医生" },
-  { "name": "李小雨", "relation": "姐姐", "age": 32, "occupation": "设计师" },
-  { "name": "李小阳", "relation": "哥哥", "age": 35, "occupation": "律师" },
-  { "name": "张美玲", "relation": "妻子", "age": 29, "occupation": "摄影师" },
-  { "name": "李小明", "relation": "儿子", "age": 3, "occupation": "幼儿园" }
+  { "name": "Crisp", "relation": "self", "age": 28, "occupation": "engineer" },
+  { "name": "Li Daming", "relation": "father", "age": 58, "occupation": "teacher" },
+  { "name": "Wang Lihua", "relation": "mother", "age": 55, "occupation": "doctor" },
+  { "name": "Li Xiaoyu", "relation": " sister", "age": 32, "occupation": "designer" },
+  { "name": "Li Xiaoyang", "relation": "elder brother", "age": 35, "occupation": "lawyer" },
+  { "name": "Zhang Meiling", "relation": "wife", "age": 29, "occupation": "photographer" },
+  { "name": "Li Xiaoming", "relation": "son", "age": 3, "occupation": "attends kindergarten" }
 ]
