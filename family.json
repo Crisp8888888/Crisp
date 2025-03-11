@@ -1,9 +1,0 @@
-[
-  { "name": "Crisp", "relation": "self", "age": 28, "occupation": "engineer" },
-  { "name": "Li Daming", "relation": "father", "age": 58, "occupation": "teacher" },
-  { "name": "Wang Lihua", "relation": "mother", "age": 55, "occupation": "doctor" },
-  { "name": "Li Xiaoyu", "relation": " sister", "age": 32, "occupation": "designer" },
-  { "name": "Li Xiaoyang", "relation": "elder brother", "age": 35, "occupation": "lawyer" },
-  { "name": "Zhang Meiling", "relation": "wife", "age": 29, "occupation": "photographer" },
-  { "name": "Li Xiaoming", "relation": "son", "age": 3, "occupation": "attends kindergarten" }
-]
