@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="output"></div>
+  <script>
+    const data = [
+      { id: 1, name: "Alice", role: "Developer" },
+      { id: 2, name: "Bob", role: "Designer" }
+    ];
+    localStorage.setItem("records", JSON.stringify(data));
+    const savedData = JSON.parse(localStorage.getItem("records"));
+    document.getElementById("output").innerHTML = 
+      JSON.stringify(savedData, null, 2);
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <textarea id="entry"></textarea>
+  <button onclick="saveEntry()">Save</button>
+  <div id="entries"></div>
+  <script>
+    function saveEntry() {
+      const entry = document.getElementById("entry").value;
+      const date = new Date().toLocaleString();
+      const entries = JSON.parse(localStorage.getItem("diary") || "[]");
+      entries.push({ date, entry });
+      localStorage.setItem("diary", JSON.stringify(entries));
+      displayEntries();
+    }
+    function displayEntries() {
+      const entries = JSON.parse(localStorage.getItem("diary"));
+      document.getElementById("entries").innerHTML = entries
+        .map(e => `<p>${e.date}: ${e.entry}</p>`).join('');
+    }
+    displayEntries();
+  </script>
+</body>
+</html>

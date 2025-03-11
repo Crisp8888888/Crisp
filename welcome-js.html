@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1 id="greeting"></h1>
+  <button onclick="logout()">Logout</button>
+  <script>
+    const user = sessionStorage.getItem("user");
+    if (!user) window.location.href = "login-js.html";
+    document.getElementById("greeting").textContent = `Hello ${user}`;
+    function logout() {
+      sessionStorage.removeItem("user");
+      window.location.href = "login-js.html";
+    }
+  </script>
+</body>
+</html>
