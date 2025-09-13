@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - YEEZY</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* 替换为图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.8); /* 浅色背景叠加 */
+            background-blend-mode: lighten; /* 混合模式 */
+        }
+
+        header, footer {
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        h1, h2 {
+            color: #222; /* 加深字体颜色 */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 每行两列 */
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .product {
+            width: 300px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 0.95); /* 半透明背景 */
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px; /* 统一图片高度 */
+            object-fit: cover; /* 保持图片比例 */
+            border-radius: 10px;
+        }
+
+        .product p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #333; /* 加深字体颜色 */
+        }
+
+        .product button {
+            padding: 10px;
+            font-size: 1em;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shopping Cart</h1>
+        <nav>
+            <a href="index.html">Homepage</a>
+            <a href="shopping-cart.html">Shopping Cart</a>
+            <a href="confirmation.html">Confirm order</a>
+            <a href="logout.html">Log off</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Product Details</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product">
+    <img src="black-shoes.jpg" alt="black Shoes">
+    <p>black Shoes - $200</p>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+</div>
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="yellow-shoes.jpg" alt="yellow Shoes">
+    <p>yellow Shoes - $200</p>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="111111111.jpg" alt="desert yellow Shoes">
+                <p>desert yellow Shoes - $250</p>
+               <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="2222222222222.jpg" alt="black Shoes">
+                <p>black Shoes - $250</p>
+               <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+            <!-- Product 5 -->
+            <div class="product">
+                <img src="white-shoes.jpg" alt="white shoes">
+                <p>white Shoes - $230</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="dark-shoes.jpg" alt="dark shoes ">
+                <p>dark Shoes - $230</p>
+                <div style="display: flex; justify-content: center; align-items: center; gap: 5px;">
+        <button class="decrease-qty" type="button">-</button>
+        <input type="number" class="quantity" min="0" value="0" placeholder="Quantity" style="width: 60px;">
+        <button class="increase-qty" type="button">+</button>
+    </div>
+    <button class="add-to-cart" data-price="200">Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Copyright &copy; 2025</p>
+    </footer>
+    <script>
+const cart = [];
+
+// 数量加减按钮功能
+document.querySelectorAll('.product').forEach((productDiv) => {
+    const qtyInput = productDiv.querySelector('.quantity');
+    const decreaseBtn = productDiv.querySelector('.decrease-qty');
+    const increaseBtn = productDiv.querySelector('.increase-qty');
+
+    if (decreaseBtn && qtyInput) {
+        decreaseBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value) || 0;
+            if (val > 0) qtyInput.value = val - 1;
+        });
+    }
+    if (increaseBtn && qtyInput) {
+        increaseBtn.addEventListener('click', () => {
+            let val = parseInt(qtyInput.value) || 0;
+            qtyInput.value = val + 1;
+        });
+    }
+});
+
+// 处理 "Add to Cart" 按钮点击事件
+document.querySelectorAll('.add-to-cart').forEach((button) => {
+    button.addEventListener('click', () => {
+        const product = button.parentElement;
+        const name = product.querySelector('p').textContent;
+        const price = parseFloat(button.getAttribute('data-price'));
+        const quantity = parseInt(product.querySelector('.quantity').value) || 0;
+
+        if (quantity === 0) {
+            alert('Please select at least 1 item.');
+            return;
+        }
+
+        cart.push({ name, price, quantity });
+        alert(`${quantity} x ${name} added to cart!`);
+
+        // 将购物车数据存储到 localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+    });
+});
+</script>
+<!-- ...existing code... -->
+     <script src="script.js"></script>
+</body>
+</html>

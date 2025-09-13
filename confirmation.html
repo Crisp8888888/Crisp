@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Order - YEEZY</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* 替换为实际背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.8); /* 浅色背景叠加 */
+            background-blend-mode: lighten;
+        }
+
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8); /* 深色半透明背景 */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ddd;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        #orderDetails {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #orderDetails div {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        #totalPrice {
+            font-weight: bold;
+            color: #d9534f; /* 红色强调 */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #5cb85c; /* 绿色按钮 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Confirm Order</h1>
+        <nav>
+            <a href="index.html">Homepage</a>
+            <a href="shopping-cart.html">Shopping Cart</a>
+            <a href="confirmation.html">Confirm Order</a>
+            <a href="logout.html">Log off</a>
+        </nav>
+    </header>
+    <main>
+    <h2>Order Details</h2>
+    <div id="orderDetails">
+        <!-- 动态生成订单详情 -->
+    </div>
+    <p>Total Price: $<span id="totalPrice">0</span></p>
+    <button id="confirmOrder">Confirm Order</button>
+    <button id="backToCart" style="margin-left:15px;background-color:#337ab7;">Return to Cart</button>
+    <button id="downloadOrder" style="margin-left:15px;background-color:#f0ad4e;">Download Order</button>
+</main>
+    <footer>
+        <p>&copy; 2025 E-commerce Platform. All rights reserved.</p>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const orderDetails = document.getElementById('orderDetails');
+        const totalPriceElement = document.getElementById('totalPrice');
+
+        // 从 localStorage 获取购物车数据
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalPrice = 0;
+
+        // 动态生成订单详情
+        cart.forEach((item) => {
+            const itemTotal = item.price * item.quantity;
+            totalPrice += itemTotal;
+
+            const div = document.createElement('div');
+            div.textContent = `${item.quantity} x ${item.name} - $${itemTotal.toFixed(2)}`;
+            orderDetails.appendChild(div);
+        });
+
+        // 显示总价
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+
+        // 返回购物车按钮
+        document.getElementById('backToCart').addEventListener('click', () => {
+            window.location.href = 'shopping-cart.html';
+        });
+
+        // 下载订单按钮
+        document.getElementById('downloadOrder').addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            let content = 'Order Details:\n\n';
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                content += `${item.quantity} x ${item.name} - $${itemTotal.toFixed(2)}\n`;
+            });
+            content += `\nTotal Price: $${totalPrice.toFixed(2)}\n`;
+
+            // 创建并下载txt文件
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'order.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    });
+
+    // 清空购物车（可选功能）
+    document.getElementById('confirmOrder').addEventListener('click', () => {
+        alert('Order confirmed!');
+        localStorage.removeItem('cart'); // 清空购物车数据
+        location.reload(); // 刷新页面
+    });
+</script>
+    <script src="script.js"></script>
+</body>
+</html>

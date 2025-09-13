@@ -3,42 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="2.css">
+    <title>ever pure - shopping APP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 100px);
+        }
+
+        #formContainer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        form h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        p {
+            font-size: 1em;
+        }
+
+        p a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <!-- 登录页面横幅 -->
-        <div class="banner">
-            <img src="logo.jpg" alt=""style="width:600px;height:600px;">
-        </div>
-        <!-- 导航栏 -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="support.html">Customer support</a></li>
-                <li><a href="product.html">Product Portfolio</a></li>
-                <li><a href="about.html">About us</a></li>
-                <li><a href="blog.html">blog New</a></li>
-            </ul>
-        </nav>
+        <h1>Welcome to my yeezy-shoes website</h1>
     </header>
     <main>
-        <!-- 产品展示区 -->
-        <section class="product-showcase">
-            <!-- 产品项示例 -->
-            <div class="product-item">
-                <img src="11.HUAWEI.jpg" alt="project1">
-                <h2>Matepad Pro</h2>
-                <p>This is the sign of our store</p>
-                <button class="hover-button">BUY</button>
-            </div>
-            <!-- 更多产品项... -->
-        </section>
+        <div id="formContainer">
+            <!-- Registration Form -->
+            <form id="registerForm" style="display: none;">
+                <h3>Register</h3>
+                <label for="regUsername">User name:</label>
+                <input type="text" id="regUsername" required>
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" required>
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="#" id="showLogin">Log in</a></p>
+            </form>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <h3>Login</h3>
+                <label for="username">User name:</label>
+                <input type="text" id="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Log on</button>
+                <p>Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </form>
+        </div>
     </main>
-    <footer>
-        <!-- 页脚内容 -->
-        <p>HUAWEI &copy; 2024 | designer：Crsip</p>
-    </footer>
+   <script>
+    // Toggle between login and register forms
+    const registerForm = document.getElementById('registerForm');
+    const loginForm = document.getElementById('loginForm');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+
+    showRegister.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+    });
+
+    showLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        registerForm.style.display = 'none';
+        loginForm.style.display = 'block';
+    });
+
+    // Registration functionality (support multiple accounts)
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const regUsername = document.getElementById('regUsername').value;
+        const regPassword = document.getElementById('regPassword').value;
+
+        if (regUsername && regPassword) {
+            // 获取已保存的用户数组
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+            // 检查用户名是否已存在
+            const exists = users.some(u => u.username === regUsername);
+            if (exists) {
+                alert('Username already exists!');
+                return;
+            }
+            // 添加新用户
+            users.push({ username: regUsername, password: regPassword });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Registration successful! Please log in.');
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+
+    // Login functionality (support multiple accounts)
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        const found = users.find(u => u.username === username && u.password === password);
+
+        if (found) {
+            alert('Login successful!');
+            window.location.href = 'shopping-cart.html';
+        } else {
+            alert('Invalid username or password.');
+        }
+    });
+</script>
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log off - YEEZY-SHOES-APP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* 替换为实际背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.8); /* 浅色背景叠加 */
+            background-blend-mode: lighten;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, footer {
+            background-color: rgba(0, 0, 0, 0.8); /* 深色半透明背景 */
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明白色背景 */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #5cb85c; /* 绿色按钮 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+        }
+
+        footer {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Log off</h1>
+        <nav>
+            <a href="index.html">Homepage</a>
+            <a href="shopping-cart.html">Shopping Cart</a>
+            <a href="confirmation.html">Confirm Order</a>
+            <a href="logout.html">Log off</a>
+        </nav>
+    </header>
+    <main>
+        <h2>You have successfully logged out</h2>
+        <button onclick="redirectToHomepage()">Return to Homepage</button>
+    </main>
+    <footer>
+        <p>&copy; 2025 E-commerce Platform. All rights reserved.</p>
+    </footer>
+    <script>
+        function redirectToHomepage() {
+            window.location.href = 'index.html'; // 跳转到主页
+        }
+    </script>
+</body>
+</html>
